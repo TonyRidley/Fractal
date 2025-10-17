@@ -1,0 +1,6 @@
+obj
+fractal
+.idea
+cmake-build-debug
+.DS_Store
+fractal*.bmp
