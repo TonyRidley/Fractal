@@ -37,6 +37,11 @@ static int input_validation(int argc, char *argv[])
 	char	*end;
 	long	n;
 
+	if (argc == 2 && (std::strcmp(argv[1], "-h") == 0 || std::strcmp(argv[1], "--help") == 0))
+	{
+		print_usage();
+		exit(0);
+	}
 	if (argc != 2 && argc != 3)
 	{
 		print_usage();
@@ -74,8 +79,8 @@ static int input_validation(int argc, char *argv[])
 
 static void print_usage()
 {
-	std::cout << "Usage: ./Fractal [OPTIONS]\n"
-			  << "  (no args)     Run interactive window\n"
-			  << "  --image       Save a default fractal image\n"
-			  << "  --help        Show this message\n";
+	std::cout << "Usage: ./fractal N [OPTIONS]\n"
+			  << "  N             Fractal exponent [2,50]\n"
+			  << "  -i, --image   Save a default fractal image\n"
+			  << "  -h, --help    Show this message\n";
 }

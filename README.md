@@ -8,6 +8,10 @@ This project visualizes Newton fractals for the equation `z^n - 1 = 0`, where `n
 
 The computation is parallelized using **ISPC** (Intel SPMD Program Compiler) for SIMD vectorization, combined with multi-threaded tile-based rendering for maximum performance across CPU cores.
 
+## Preview
+
+![Newton fractal preview](assets/fractal-preview.png)
+
 ## Features
 
 - **Interactive Real-Time Exploration**: Pan and zoom smoothly through the fractal
@@ -64,10 +68,10 @@ The executable will be located at `build/fractal` and in the root directory.
 
 ### Interactive Window
 
-Run with no arguments to launch the interactive viewer:
+Run with an exponent to launch the interactive viewer:
 
 ```bash
-./Fractal 5
+./fractal 5
 ```
 
 Where `5` is the exponent `n` (try values between 2 and 50).
@@ -77,7 +81,7 @@ Where `5` is the exponent `n` (try values between 2 and 50).
 Save a default fractal image as BMP:
 
 ```bash
-./Fractal 5 --image
+./fractal 5 --image
 ```
 
 This generates `fractal_YYYYMMDD_HHMMSS.bmp` with timestamp.
@@ -85,7 +89,7 @@ This generates `fractal_YYYYMMDD_HHMMSS.bmp` with timestamp.
 ### Help
 
 ```bash
-./Fractal --help
+./fractal --help
 ```
 
 ## Controls
