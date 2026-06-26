@@ -95,6 +95,18 @@ target_link_libraries(fractal PRIVATE OpenGL::GL)
 # Platform specifics
 if (APPLE)
     add_compile_definitions(GL_SILENCE_DEPRECATION=1)
+    execute_process(
+            COMMAND xcrun --show-sdk-path
+            OUTPUT_VARIABLE MACOS_SDK_PATH
+            OUTPUT_STRIP_TRAILING_WHITESPACE
+            ERROR_QUIET
+    )
+    set(MACOS_LIBCXX_INCLUDE "${MACOS_SDK_PATH}/usr/include/c++/v1")
+    if (CMAKE_CXX_COMPILER_ID STREQUAL "AppleClang" AND EXISTS "${MACOS_LIBCXX_INCLUDE}/string")
+        target_include_directories(fractal SYSTEM PRIVATE
+                "$<$<COMPILE_LANGUAGE:CXX>:${MACOS_LIBCXX_INCLUDE}>"
+        )
+    endif()
     find_library(COCOA_LIBRARY Cocoa REQUIRED)
     find_library(IOKIT_LIBRARY IOKit REQUIRED)
     find_library(COREVIDEO_LIBRARY CoreVideo REQUIRED)
