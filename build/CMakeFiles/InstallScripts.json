@@ -1,0 +1,9 @@
+{
+	"InstallScripts" : 
+	[
+		"/Users/tonyridley/Documents/School/Fractal/build/cmake_install.cmake",
+		"/Users/tonyridley/Documents/School/Fractal/build/_glfw/cmake_install.cmake",
+		"/Users/tonyridley/Documents/School/Fractal/build/_glfw/src/cmake_install.cmake"
+	],
+	"Parallel" : false
+}
